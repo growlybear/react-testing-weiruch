@@ -4,7 +4,7 @@ const { window } = new JSDOM(
   '<!DOCTYPE html><html><head></head><body></body></html>'
 );
 
-const copyProps = (src, target) => {
+function copyProps(src, target) {
   const props = Object.getOwnPropertyNames(src)
     .filter(prop => typeof target[prop] === 'undefined')
     .reduce(
@@ -15,7 +15,7 @@ const copyProps = (src, target) => {
       {}
     );
   Object.defineProperties(target, props);
-};
+}
 
 global.window = window;
 global.document = window.document;
